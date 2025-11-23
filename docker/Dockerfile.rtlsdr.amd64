@@ -1,0 +1,22 @@
+FROM amd64/debian:bookworm
+
+RUN echo "deb http://deb.debian.org/debian bookworm-backports main" > /etc/apt/sources.list.d/bookworm-backports.list
+
+ENV DEBIAN_FRONTEND=noninteractive
+
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    gcc-x86-64-linux-gnu \
+    g++-x86-64-linux-gnu \
+    devscripts \
+    fakeroot \
+    debhelper \
+    cmake \
+    pkg-config \
+    libusb-1.0-0-dev \
+    && rm -rf /var/lib/apt/lists/*
+
+RUN sed -i "s/doit(\"cp\", '--reflink=auto', \"-a\"/doit(\"cp\", '--reflink=auto', \"-a\", \"--no-preserve=ownership\"/g" /usr/bin/dh_install
+RUN sed -i "s/xargs(\\\@srcs, \"cp\", '--reflink=auto', \"-a\"/xargs(\\\@srcs, \"cp\", '--reflink=auto', \"-a\", \"--no-preserve=ownership\"/g" /usr/bin/dh_install
+
+WORKDIR /build
