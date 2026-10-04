@@ -1,5 +1,12 @@
 # rtlsdr-osmocom
 
+> [!IMPORTANT]
+> **This repository is archived.** The work continues in [foonerd/rtlsdr-radio](https://github.com/foonerd/rtlsdr-radio), which holds the FM/DAB Radio plugin for Volumio together with the builds of every binary it ships.
+>
+> The RTL-SDR library and tools (`libfn-rtlsdr0`, `foonerd-rtlsdr`) are built there, in [`components/rtlsdr`](https://github.com/foonerd/rtlsdr-radio/tree/main/components/rtlsdr), from the same upstream, [osmocom/rtl-sdr](https://github.com/osmocom/rtl-sdr). The documentation is in the [wiki](https://github.com/foonerd/rtlsdr-radio/wiki).
+>
+> It stays available, read-only, as the source of the binaries that earlier versions of the plugin were built from. What follows describes this repository as it was when it was last worked on.
+
 fooNerd custom build of RTL-SDR library and tools from osmocom/rtl-sdr.
 
 ## Attribution
